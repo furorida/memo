@@ -1,8 +1,11 @@
 package com.example.shunyatsukada.memo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +22,13 @@ public class Setumei extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setumei);
+
+        SharedPreferences pref= getSharedPreferences("スマホ", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("key_tutorial", true);
+        editor.commit();
+        Log.d("Setumei", "保存されたよ: " + true);
+
     }
 
     @Override

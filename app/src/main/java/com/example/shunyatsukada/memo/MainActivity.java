@@ -1,6 +1,8 @@
 package com.example.shunyatsukada.memo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,21 +11,35 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean isFirst;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences pref= getSharedPreferences("スマホ", Context.MODE_PRIVATE);
+        boolean data = pref.getBoolean("key_tutorial", false);
+
+        isFirst = data;
+
+
+        if (!isFirst) {
+            Intent intent = new Intent(this, Setumei.class);
+            startActivity(intent);
+        }
     }
 
-    public void memo(View v){
+    public void memo(View v) {
 
-        Intent intent = new Intent(this,MemoActivity.class);
+
+        Intent intent = new Intent(this, MemoActivity.class);
         startActivity(intent);
     }
 
-    public void setumeii(View v){
+    public void setumeii(View v) {
 
-        Intent intent = new Intent(this,Setumei.class);
+        Intent intent = new Intent(this, Setumei.class);
         startActivity(intent);
     }
 

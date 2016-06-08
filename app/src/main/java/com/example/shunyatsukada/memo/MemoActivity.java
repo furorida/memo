@@ -25,7 +25,7 @@ public class MemoActivity extends AppCompatActivity {
 
         pref = getSharedPreferences("pref_memo",MODE_PRIVATE);
 
-        titleEditText.setText(pref.getString("key_title",""));
+        titleEditText.setText(pref.getString("key_title", ""));
         contentEditText.setText(pref.getString("key_content",""));
     }
 
