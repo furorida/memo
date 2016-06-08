@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences pref= getSharedPreferences("スマホ", Context.MODE_PRIVATE);
         boolean data = pref.getBoolean("key_tutorial", false);
 
+
         isFirst = data;
 
 
